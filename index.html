@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover and register for exciting events.">
+  <title>Gatherly — Discover Events</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Gatherly home"><span class="brand-mark">G</span> gatherly<span class="brand-dot">.</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+    <nav id="navLinks">
+      <a href="#events">Explore events</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">☾</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow"><span class="live-dot"></span> MAKE EVERY MOMENT COUNT</p>
+        <h1>Find your next<br><span>great experience.</span></h1>
+        <p class="hero-copy">Discover inspiring events, meet interesting people, and make memories that stay with you.</p>
+        <a class="button button-primary" href="#events">Explore events <span>↗</span></a>
+        <div class="hero-note"><span>✦</span> Discover. Connect. Experience.</div>
+      </div>
+      <div class="hero-art" aria-label="People enjoying a live event">
+        <div class="art-card art-card-top"><span>✦</span> GOOD TIMES AHEAD</div>
+        <div class="art-circle"><span>✳</span></div>
+        <div class="art-card art-card-bottom"><strong>01 — 06</strong><span>Find something<br>worth showing up for.</span></div>
+      </div>
+    </section>
+
+    <section class="stats-strip">
+      <div><strong>12+</strong><span>Curated events</span></div>
+      <div><strong>4</strong><span>Event categories</span></div>
+      <div><strong>∞</strong><span>Ways to connect</span></div>
+    </section>
+
+    <section class="events-section section-wrap" id="events">
+      <div class="section-heading">
+        <div><p class="eyebrow">WHAT'S HAPPENING</p><h2>Explore <span>events.</span></h2></div>
+        <p class="section-intro">From creative meetups to technology talks, find an experience that matches your interests.</p>
+      </div>
+      <div class="event-tools">
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search events..." aria-label="Search events"></label>
+        <div class="filters" id="filters">
+          <button class="filter active" data-category="All">All events</button>
+          <button class="filter" data-category="Technology">Technology</button>
+          <button class="filter" data-category="Music">Music</button>
+          <button class="filter" data-category="Workshop">Workshop</button>
+          <button class="filter" data-category="Community">Community</button>
+        </div>
+      </div>
+      <div class="event-grid" id="eventGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>No events found. Try another search or category.</p>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="about-symbol">✳</div>
+      <div><p class="eyebrow">A LITTLE ABOUT US</p><h2>Life is better<br>when we <span>gather.</span></h2></div>
+      <p>Gatherly makes it easy to find experiences worth your time. Browse events, discover new interests, and take the first step toward your next memorable moment.</p>
+    </section>
+
+    <section class="cta-section" id="contact">
+      <p class="eyebrow">YOUR NEXT EXPERIENCE STARTS HERE</p>
+      <h2>Have a question?</h2>
+      <p>We'd love to hear from you. Reach out and let's make something happen.</p>
+      <a class="button button-light" href="mailto:hello@gatherly.example">Contact us ↗</a>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">G</span> gatherly<span class="brand-dot">.</span></a><span>Made for moments that matter.</span><span>© <span id="year"></span> Gatherly</span></footer>
+
+  <div class="modal-backdrop" id="detailsModal" aria-hidden="true">
+    <div class="modal modal-details" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" data-close aria-label="Close">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="registerModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
+      <button class="modal-close" data-close aria-label="Close">×</button>
+      <p class="eyebrow">SAVE YOUR SPOT</p>
+      <h2 id="registerTitle">Event registration</h2>
+      <p class="form-event-name" id="selectedEventName"></p>
+      <form id="registrationForm" novalidate>
+        <input type="hidden" id="selectedEventId">
+        <label>Full name<input id="fullName" type="text" placeholder="Your name" required></label>
+        <label>Email address<input id="email" type="email" placeholder="you@example.com" required></label>
+        <label>Phone number<input id="phone" type="tel" placeholder="10-digit phone number" required></label>
+        <p class="form-error" id="formError" role="alert"></p>
+        <button class="button button-primary form-submit" type="submit">Confirm registration ↗</button>
+      </form>
+      <div class="success-message" id="successMessage" hidden>
+        <div class="success-icon">✓</div><h3>You're on the list!</h3>
+        <p>Your registration has been saved on this device. We look forward to seeing you.</p>
+        <button class="button button-primary" data-close>Done</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
